@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>II Onecamp FORJADO — 29 de outubro a 2 de novembro de 2026</title>
+<meta name="description" content="II Onecamp de Desbravadores — FORJADO. De 29 de outubro a 2 de novembro de 2026, na Granja Viva Mar, São José de Mipibu/RN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1730; --navy-2:#112347; --gold:#e8b643; --gold-2:#f6d98a;
+  --sun:#f07a2a; --ink:#f4efe3; --muted:#b9c0d0; --card:#13264d; --line:rgba(232,182,67,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--navy);color:var(--ink);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Cinzel,serif;letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--gold);margin-bottom:12px}
+.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);font-weight:600;margin-bottom:8px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.lead{color:var(--muted);max-width:640px;margin-bottom:32px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(11,23,48,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .brand{font-family:Cinzel,serif;font-weight:800;color:var(--gold);text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.9rem}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--gold-2)}
+@media(max-width:820px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:56px 0 72px;border:0;background:
+  radial-gradient(900px 420px at 50% 0%,rgba(240,122,42,.28),transparent 70%),var(--navy)}
+.hero .wrap{display:grid;gap:28px;justify-items:center;text-align:center}
+.hero img.logo{width:min(440px,86vw);filter:drop-shadow(0 12px 40px rgba(240,122,42,.35))}
+.hero p{max-width:560px;color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--gold)}
+.btn.primary{background:var(--gold);color:var(--navy)}
+.btn.primary:hover{background:var(--gold-2)}
+.btn.ghost{color:var(--gold)}
+.btn.ghost:hover{background:rgba(232,182,67,.12)}
+.count{display:flex;gap:12px}
+.count div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:76px}
+.count b{display:block;font-family:Cinzel,serif;font-size:1.9rem;color:var(--gold)}
+.count span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* grids */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:1.1rem;color:var(--gold-2);margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:.95rem}
+.card ul{padding-left:18px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.frame{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--navy-2)}
+.tbd{display:inline-block;font-size:.72rem;background:rgba(240,122,42,.18);color:var(--sun);border:1px dashed var(--sun);border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+
+/* programação */
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.days{grid-template-columns:1fr}}
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.day .d{font-family:Cinzel,serif;font-size:2rem;color:var(--gold);line-height:1}
+.day .m{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-bottom:10px}
+.day p{font-size:.88rem;color:var(--muted)}
+
+/* ranking */
+.rank-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.live{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:#3ecf6e;box-shadow:0 0 0 0 rgba(62,207,110,.6);animation:pulse 2s infinite}
+.dot.off{background:var(--sun);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(62,207,110,0)}100%{box-shadow:0 0 0 0 rgba(62,207,110,0)}}
+.demo{display:none;font-size:.75rem;background:rgba(240,122,42,.18);color:var(--sun);border:1px dashed var(--sun);border-radius:6px;padding:2px 10px}
+#rank-list{list-style:none;display:grid;gap:10px}
+.row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;position:relative;overflow:hidden}
+.row .bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(232,182,67,.22),transparent);z-index:0;transition:width .6s}
+.row>*:not(.bar){position:relative;z-index:1}
+.pos{font-family:Cinzel,serif;font-size:1.6rem;color:var(--gold);text-align:center}
+.row.p1{border-color:var(--gold);background:#1a2f5e}
+.row.p1 .pos::before{content:"🥇 "}
+.row.p2 .pos::before{content:"🥈 "}
+.row.p3 .pos::before{content:"🥉 "}
+.row.p1 .pos,.row.p2 .pos,.row.p3 .pos{font-size:1.3rem}
+.team{font-weight:600;font-size:1.05rem}
+.club{color:var(--muted);font-size:.85rem}
+.pts{font-family:Cinzel,serif;font-size:1.7rem;color:var(--gold-2);text-align:right;line-height:1}
+.pts small{display:block;font-family:Inter,sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1.5px dashed var(--line);border-radius:14px}
+@media(max-width:560px){.row{grid-template-columns:44px 1fr auto;padding:12px}.pts{font-size:1.4rem}}
+
+/* galeria */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ph{aspect-ratio:4/3;border:1.5px dashed var(--line);border-radius:12px;display:grid;place-items:center;color:var(--muted);font-size:.82rem;text-align:center;padding:10px;background:rgba(19,38,77,.5)}
+.ph.video{grid-column:span 2;aspect-ratio:8/3}
+
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;color:var(--gold-2)}
+details p{color:var(--muted);margin-top:10px;font-size:.95rem}
+
+/* org */
+.orgs{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.orgs img{height:110px;width:auto}
+.orgs img.inv{filter:brightness(0) invert(1);opacity:.9}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.tags a{text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:.88rem;color:var(--gold-2)}
+.tags a:hover{background:rgba(232,182,67,.12)}
+footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.85rem}
+.note{background:rgba(240,122,42,.1);border-left:3px solid var(--sun);padding:10px 14px;border-radius:6px;font-size:.88rem;color:var(--muted);margin-top:18px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#inicio">II ONECAMP · FORJADO</a>
+      <ul>
+        <li><a href="#evento">O evento</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#ranking">Gincana</a></li>
+        <li><a href="#local">Local</a></li>
+        <li><a href="#clubes">Para clubes</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <img class="logo" src="img/logo-forjado-onecamp-transp.png" alt="Logo do II Onecamp — FORJADO, 29 de outubro a 2 de novembro">
+    <div class="count" id="count" aria-label="Contagem regressiva">
+      <div><b id="cd-d">--</b><span>dias</span></div>
+      <div><b id="cd-h">--</b><span>horas</span></div>
+      <div><b id="cd-m">--</b><span>min</span></div>
+      <div><b id="cd-s">--</b><span>seg</span></div>
+    </div>
+    <p>O acampamento de Desbravadores do Rio Grande do Norte e Paraíba. Cinco dias para ser forjado em fé, amizade e aventura.</p>
+    <div class="btns">
+      <a class="btn primary" href="#clubes">Inscrição do clube <span class="tbd">link em breve</span></a>
+      <a class="btn ghost" href="#local">Como chegar</a>
+    </div>
+  </div>
+</section>
+
+<section id="evento">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">O evento</div>
+      <h2>Forjado</h2>
+      <p class="lead">O II Onecamp reúne clubes de Desbravadores da Missão Rio Grande do Norte–Paraíba em cinco dias de acampamento. A identidade do evento se inspira na jornada de José do Egito: um jovem moldado pela fé em meio ao deserto, às provações e à promessa.</p>
+      <div class="grid g2">
+        <div class="card"><h3>29/10 a 02/11</h3><p>Quinta-feira a segunda-feira, 2026.</p></div>
+        <div class="card"><h3>São José de Mipibu/RN</h3><p>Granja Viva Mar.</p></div>
+      </div>
+      <div class="note">Texto do tema e versículo-chave: aguardando material da liderança.</div>
+    </div>
+    <div class="frame"><img src="img/moldura-forjado-datas.png" alt="Moldura do II Onecamp FORJADO com bússola e datas"></div>
+  </div>
+</section>
+
+<section id="programacao">
+  <div class="wrap">
+    <div class="eyebrow">Programação</div>
+    <h2>Cinco dias de acampamento</h2>
+    <p class="lead">Estrutura provisória. Horários e atividades serão confirmados pela organização do evento.</p>
+    <div class="days">
+      <div class="day"><div class="d">29</div><div class="m">outubro · qui</div><p>Chegada dos clubes e entrega da pasta de documentação na secretaria. Montagem da área.</p></div>
+      <div class="day"><div class="d">30</div><div class="m">outubro · sex</div><p>Programação a definir.</p></div>
+      <div class="day"><div class="d">31</div><div class="m">outubro · sáb</div><p>Programação a definir.</p></div>
+      <div class="day"><div class="d">01</div><div class="m">novembro · dom</div><p>Programação a definir.</p></div>
+      <div class="day"><div class="d">02</div><div class="m">novembro · seg</div><p>Encerramento, limpeza da área e retorno.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="wrap">
+    <div class="eyebrow">Gincana</div>
+    <div class="rank-head">
+      <h2 style="margin:0">Ranking das equipes <span class="demo" id="demo">dados de exemplo</span></h2>
+      <div class="live"><span class="dot" id="dot"></span><span id="stamp">carregando…</span></div>
+    </div>
+    <p class="lead">A pontuação é atualizada automaticamente a partir da planilha oficial da organização, sem precisar recarregar a página.</p>
+    <ol id="rank-list"></ol>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Local</div>
+      <h2>Granja Viva Mar</h2>
+      <p class="lead">Rua Maria Plim Plim, nº 125<br>Mendes · São José de Mipibu/RN<br>CEP 59162-972</p>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rua+Maria+Plim+Plim+125+Mendes+S%C3%A3o+Jos%C3%A9+de+Mipibu+RN">Abrir no Google Maps</a>
+      <div class="note">Mapa incorporado, rotas a partir de Natal e orientações para ônibus: a adicionar.</div>
+    </div>
+    <div class="ph" style="aspect-ratio:4/3">Espaço para mapa ou foto aérea do local</div>
+  </div>
+</section>
+
+<section id="clubes">
+  <div class="wrap">
+    <div class="eyebrow">Para clubes e secretarias</div>
+    <h2>Documentação do clube</h2>
+    <p class="lead">A pasta do clube deve ser apresentada na secretaria do II Onecamp no dia <strong>29/10/2026</strong>. Cada clube escolhe a apresentação: plastificada, pasta suspensa ou encadernada.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Pasta do clube</h3>
+        <ul>
+          <li>Declaração de responsabilidade</li>
+          <li>Autorização da igreja, com voto da comissão</li>
+          <li>Autorização da região e planilha do SGC dos inscritos (incluir staff e crianças)</li>
+          <li>Ficha de cadastro individual, impressa do SGC</li>
+          <li>Ficha de saúde de cada participante, impressa do SGC</li>
+          <li>Ficha de alergias</li>
+          <li>Cópia do RG/CPF ou certidão de nascimento de todos</li>
+          <li>Cópia do cartão de vacina, SUS ou plano de saúde</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pasta da unidade</h3>
+        <ul>
+          <li>Planilha da unidade com os inscritos, impressa do SGC</li>
+          <li>Ficha de cadastro individual de cada participante</li>
+          <li>Ficha de autorização para menores, assinada por pai ou responsável</li>
+          <li>Ficha de saúde e ficha de alergias</li>
+          <li>Cópia do RG/CPF ou certidão de nascimento, e RG/CPF dos responsáveis</li>
+          <li>Cópia do cartão de vacina, SUS ou plano de saúde</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><h3>Modelo: pasta do clube</h3><p>PDF com capa e índice. <span class="tbd">download em breve</span></p></div>
+      <div class="card"><h3>Modelo: pasta da unidade</h3><p>PDF com índice. <span class="tbd">download em breve</span></p></div>
+      <div class="card"><h3>Autorização de viagem</h3><p>Para menores de 16 anos, conforme Resolução CNJ 295/2019, com firma reconhecida. <span class="tbd">download em breve</span></p></div>
+    </div>
+    <div class="note">Os modelos são editáveis e trazem dados de um clube específico. Antes de publicar, devem ser trocados por versões genéricas, sem CPF, RG ou telefones.</div>
+  </div>
+</section>
+
+<section id="regras">
+  <div class="wrap">
+    <div class="eyebrow">Regras</div>
+    <h2>Compromissos do clube</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Só inscritos</h3><p>Pessoas não inscritas ou estranhas ao clube não podem acampar na área do clube.</p></div>
+      <div class="card"><h3>Day Pass</h3><p>Visitantes Day Pass só permanecem no acampamento nos horários estabelecidos.</p></div>
+      <div class="card"><h3>Área limpa</h3><p>O clube só sai com a área limpa, os buracos tampados e o portal desmontado e descartado no local indicado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="eyebrow">Galeria</div>
+    <h2>Imagens do acampamento</h2>
+    <p class="lead">Fotos e vídeos do local e da edição anterior entram aqui assim que a equipe de mídia enviar.</p>
+    <div class="gallery">
+      <div class="ph">Foto 1</div><div class="ph">Foto 2</div>
+      <div class="ph video">Vídeo de chamada do evento</div>
+      <div class="ph">Foto 3</div><div class="ph">Foto 4</div>
+      <div class="ph">Foto 5</div><div class="ph">Foto 6</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Dúvidas</div>
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Quem pode participar?</summary><p>Clubes de Desbravadores inscritos no SGC, com staff e crianças incluídos na lista. Detalhes de faixa etária: a confirmar.</p></details>
+    <details><summary>Como faço a inscrição?</summary><p>O link e os prazos serão divulgados pela organização. <span class="tbd">a confirmar</span></p></details>
+    <details><summary>Menores de 16 anos precisam de autorização?</summary><p>Sim. É preciso a autorização de viagem assinada pelo responsável, com firma reconhecida.</p></details>
+    <details><summary>Qual o valor?</summary><p>Valores e formas de pagamento: <span class="tbd">a confirmar</span></p></details>
+    <details><summary>Posso levar visitantes?</summary><p>Somente no regime Day Pass, dentro dos horários estabelecidos pela organização.</p></details>
+  </div>
+</section>
+
+<section id="organizacao">
+  <div class="wrap">
+    <div class="eyebrow">Organização</div>
+    <h2>Quem faz acontecer</h2>
+    <p class="lead">Missão Rio Grande do Norte–Paraíba (MRP) e 12ª Região de Desbravadores de Natal.</p>
+    <div class="orgs">
+      <img class="inv" src="img/logo-12-regiao-mrp.png" alt="Logo da 12ª Região de Desbravadores, MRP">
+      <img src="img/logo-clube-geracao-escolhida-transp.png" alt="Logo do Clube Geração Escolhida">
+    </div>
+    <div class="tags">
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/mdamrp">@mdamrp</a>
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/dbvr12">@dbvr12</a>
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/dbvr7">@dbvr7</a>
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/aventureirosdoreidbv">@aventureirosdoreidbv</a>
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/cleitonrocha.mda">@cleitonrocha.mda</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">II Onecamp · FORJADO · 29 de outubro a 2 de novembro de 2026<br>Protótipo — conteúdo sujeito a confirmação da organização.</div>
+</footer>
+
+<script>
+/* ===== RANKING DA GINCANA =====
+   1) No Google Sheets: Arquivo > Compartilhar > Publicar na Web > aba "Equipes" > formato CSV > Publicar.
+   2) Cole o link gerado abaixo. Colunas: equipe, clube, pontos (cabeçalho na linha 1).
+   Vazio = mostra dados de exemplo. */
+var SHEET_CSV_URL = '';
+var REFRESH_MS = 30000;
+(function(){
+  var list=document.getElementById('rank-list'), stamp=document.getElementById('stamp'),
+      dot=document.getElementById('dot'), demo=document.getElementById('demo');
+  var DEMO='equipe,clube,pontos\nJosé,Geração Escolhida,320\nBenjamim,Clube Aurora,295\nJudá,Clube Horizonte,295\nLevi,Clube Esperança,240\nRuben,Clube Fiel,210';
+  function parseCSV(t){
+    var rows=[],r=[],c='',q=false,i,ch;
+    for(i=0;i<t.length;i++){ch=t[i];
+      if(q){ if(ch=='"'){ if(t[i+1]=='"'){c+='"';i++;} else q=false; } else c+=ch; }
+      else if(ch=='"') q=true;
+      else if(ch==','||ch==';'){r.push(c);c='';}
+      else if(ch=='\n'||ch=='\r'){ if(ch=='\r'&&t[i+1]=='\n')i++; r.push(c);c=''; if(r.some(function(x){return x.trim()}))rows.push(r); r=[]; }
+      else c+=ch; }
+    r.push(c); if(r.some(function(x){return x.trim()}))rows.push(r);
+    return rows;
+  }
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim()}
+  function toTeams(csv){
+    var rows=parseCSV(csv); if(rows.length<2) return [];
+    var h=rows[0].map(norm), ie=h.indexOf('equipe'), ic=h.indexOf('clube'), ip=h.indexOf('pontos');
+    if(ie<0||ip<0){ie=0;ic=1;ip=2;}
+    return rows.slice(1).map(function(r){
+      var p=parseFloat(String(r[ip]||'').replace(/\./g,'').replace(',','.'));
+      return {t:(r[ie]||'').trim(), c:ic>=0?(r[ic]||'').trim():'', p:isNaN(p)?0:p};
+    }).filter(function(x){return x.t});
+  }
+  function esc(s){return s.replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+  function render(teams){
+    if(!teams.length){list.innerHTML='<li class="empty">A gincana ainda não começou. Os pontos aparecem aqui assim que forem lançados.</li>';return;}
+    teams.sort(function(a,b){return b.p-a.p||a.t.localeCompare(b.t)});
+    var max=Math.max(teams[0].p,1), pos=0, prev=null;
+    list.innerHTML=teams.map(function(x,i){
+      if(x.p!==prev){pos=i+1;prev=x.p;}
+      var cls=pos<=3?' p'+pos:'';
+      return '<li class="row'+cls+'"><span class="bar" style="width:'+Math.round(x.p/max*100)+'%"></span>'+
+        '<span class="pos">'+pos+'º</span>'+
+        '<span><span class="team">'+esc(x.t)+'</span><br><span class="club">'+esc(x.c)+'</span></span>'+
+        '<span class="pts">'+x.p.toLocaleString('pt-BR')+'<small>pontos</small></span></li>';
+    }).join('');
+  }
+  function ok(){dot.className='dot';stamp.textContent='atualizado às '+new Date().toLocaleTimeString('pt-BR')}
+  function fail(){dot.className='dot off';stamp.textContent='sem conexão com a planilha, mostrando a última pontuação'}
+  function load(){
+    if(!SHEET_CSV_URL){demo.style.display='inline-block';render(toTeams(DEMO));ok();return;}
+    fetch(SHEET_CSV_URL+(SHEET_CSV_URL.indexOf('?')>-1?'&':'?')+'t='+Date.now(),{cache:'no-store'})
+      .then(function(r){if(!r.ok)throw 0;return r.text()})
+      .then(function(t){render(toTeams(t));ok()})
+      .catch(fail);
+  }
+  load(); setInterval(load,REFRESH_MS);
+})();
+</script>
+<script>
+(function(){
+  var target=new Date('2026-10-29T00:00:00-03:00').getTime();
+  var ids=['d','h','m','s'].map(function(k){return document.getElementById('cd-'+k)});
+  function tick(){
+    var t=Math.max(0,target-Date.now());
+    var v=[Math.floor(t/864e5),Math.floor(t%864e5/36e5),Math.floor(t%36e5/6e4),Math.floor(t%6e4/1e3)];
+    v.forEach(function(n,i){ids[i].textContent=String(n).padStart(2,'0')});
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
