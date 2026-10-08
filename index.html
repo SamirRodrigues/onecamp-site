@@ -386,9 +386,9 @@ var REFRESH_MS = 30000;
     var max=Math.max(teams[0].p,1), pos=0, prev=null;
     list.innerHTML=teams.map(function(x,i){
       if(x.p!==prev){pos=i+1;prev=x.p;}
-      var cls=pos<=3?' p'+pos:'';
+      var none=teams[0].p<=0, cls=(!none&&pos<=3)?' p'+pos:'';
       return '<li class="row'+cls+'"><span class="bar" style="width:'+Math.round(x.p/max*100)+'%"></span>'+
-        '<span class="pos">'+pos+'º</span>'+
+        '<span class="pos">'+(none?'–':pos+'º')+'</span>'+
         (x.u?'<img class="tlogo" src="'+x.u.logo+'" alt="" loading="lazy">':'<span class="tlogo ini">'+esc(x.t.charAt(0).toUpperCase())+'</span>')+
         '<span><span class="team">'+esc(x.t)+'</span>'+(x.c?'<br><span class="club">'+esc(x.c)+'</span>':'')+'</span>'+
         '<span class="pts">'+x.p.toLocaleString('pt-BR')+'<small>pontos</small></span></li>';
