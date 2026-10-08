@@ -337,7 +337,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
 <script>
 /* ===== RANKING DA GINCANA =====
    1) No Google Sheets: Arquivo > Compartilhar > Publicar na Web > aba "Equipes" > formato CSV > Publicar.
-   2) Cole o link gerado abaixo. Colunas: equipe, clube, pontos (cabeçalho na linha 1).
+   2) Cole o link gerado abaixo. Colunas: UNIDADE e PONTOS (cabeçalho na linha 1).
    Vazio = mostra dados de exemplo. */
 var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXOap04bPXzti3Mkm43NvLbHdXUtxjz2MmsH93qqIpLgcWxMowr_-F2Py94NjdVXaKJ25S2aziRkeU/pub?output=csv';
 var REFRESH_MS = 30000;
@@ -345,7 +345,7 @@ var REFRESH_MS = 30000;
   var list=document.getElementById('rank-list'), stamp=document.getElementById('stamp'),
       dot=document.getElementById('dot'), demo=document.getElementById('demo');
   var UN=window.UNIDADES||[];
-  var DEMO='equipe,pontos\nTribo de Ruben,320\nFortaleza Suprema,295\nTerremoto,295\nAnjos do Rei,240\nEstrela da Manhã,210\nTribo de Aser,180\nTribo de Naftali,150\nHerdeira do Rei,120\nLírios do Altíssimo,90';
+  var DEMO='unidade,pontos\nTribo de Ruben,320\nFortaleza Suprema,295\nTerremoto,295\nAnjos do Rei,240\nEstrela da Manhã,210\nTribo de Aser,180\nTribo de Naftali,150\nHerdeira do Rei,120\nLírios do Altíssimo,90';
   function key(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/^unidade\s+/,'').replace(/\s+/g,' ').trim()}
   UN.forEach(function(u){u.keys=[u.nome].concat(u.apelidos||[]).map(key)});
   function unitOf(name){var k=key(name);for(var i=0;i<UN.length;i++){if(UN[i].keys.indexOf(k)>-1)return UN[i]}return null}
@@ -365,8 +365,9 @@ var REFRESH_MS = 30000;
   function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim()}
   function toTeams(csv){
     var rows=parseCSV(csv); if(rows.length<2) return [];
-    var h=rows[0].map(norm), ie=h.indexOf('equipe'), ic=h.indexOf('clube'), ip=h.indexOf('pontos');
-    if(ie<0||ip<0){ie=0;ic=1;ip=2;}
+    var h=rows[0].map(norm), ie=h.indexOf('unidade'), ic=h.indexOf('clube'), ip=h.indexOf('pontos');
+    if(ie<0)ie=h.indexOf('equipe');
+    if(ie<0||ip<0){ie=0;ic=-1;ip=1;}
     return rows.slice(1).map(function(r){
       var p=parseFloat(String(r[ip]||'').replace(/\./g,'').replace(',','.'));
       return {t:(r[ie]||'').trim(), c:ic>=0?(r[ic]||'').trim():'', p:isNaN(p)?0:p};
