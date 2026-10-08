@@ -1,0 +1,4 @@
+# N?o servir arquivos de projeto ao p?blico
+<FilesMatch "^(README\.md|\.gitignore|modelo-planilha-equipes\.csv)$">
+  Require all denied
+</FilesMatch>
