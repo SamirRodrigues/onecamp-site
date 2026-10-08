@@ -90,12 +90,23 @@ nav ul a:hover{color:var(--gold-2)}
 .row.p2 .pos::before{content:"🥈 "}
 .row.p3 .pos::before{content:"🥉 "}
 .row.p1 .pos,.row.p2 .pos,.row.p3 .pos{font-size:1.3rem}
+.ugrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media(max-width:820px){.ugrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.ugrid{grid-template-columns:1fr}}
+.ucard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-align:center;transition:transform .25s,border-color .25s}
+.ucard:hover{transform:translateY(-4px);border-color:var(--gold)}
+.ucard img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff}
+.ucard h3{font-size:1.05rem;color:var(--gold-2);padding:14px 12px}
+.row{grid-template-columns:52px 56px 1fr auto}
+.tlogo{width:56px;height:56px;border-radius:12px;object-fit:cover;background:#fff;border:1px solid var(--line)}
+.tlogo.ini{display:grid;place-items:center;background:var(--navy-2);color:var(--gold);font-family:Cinzel,serif;font-weight:800}
+@media(max-width:560px){.row{grid-template-columns:40px 44px 1fr auto}.tlogo{width:44px;height:44px}}
 .team{font-weight:600;font-size:1.05rem}
 .club{color:var(--muted);font-size:.85rem}
 .pts{font-family:Cinzel,serif;font-size:1.7rem;color:var(--gold-2);text-align:right;line-height:1}
 .pts small{display:block;font-family:Inter,sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .empty{padding:28px;text-align:center;color:var(--muted);border:1.5px dashed var(--line);border-radius:14px}
-@media(max-width:560px){.row{grid-template-columns:44px 1fr auto;padding:12px}.pts{font-size:1.4rem}}
+@media(max-width:560px){.row{padding:12px}.pts{font-size:1.4rem}}
 
 /* galeria */
 .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -127,6 +138,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
       <a class="brand" href="#inicio">II ONECAMP · FORJADO</a>
       <ul>
         <li><a href="#evento">O evento</a></li>
+        <li><a href="#unidades">Unidades</a></li>
         <li><a href="#programacao">Programação</a></li>
         <li><a href="#ranking">Gincana</a></li>
         <li><a href="#local">Local</a></li>
@@ -168,6 +180,15 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
       <div class="note">Texto do tema e versículo-chave: aguardando material da liderança.</div>
     </div>
     <div class="frame"><img src="img/moldura-forjado-datas.png" alt="Moldura do II Onecamp FORJADO com bússola e datas"></div>
+  </div>
+</section>
+
+<section id="unidades">
+  <div class="wrap">
+    <div class="eyebrow">Gincana</div>
+    <h2>Unidades participantes</h2>
+    <p class="lead">Nove unidades disputam a gincana do II Onecamp. Cada uma defende o seu brasão ao longo dos cinco dias.</p>
+    <div class="ugrid" id="ugrid"></div>
   </div>
 </section>
 
@@ -312,6 +333,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
   <div class="wrap">II Onecamp · FORJADO · 29 de outubro a 2 de novembro de 2026<br>Protótipo — conteúdo sujeito a confirmação da organização.</div>
 </footer>
 
+<script src="js/unidades.js"></script>
 <script>
 /* ===== RANKING DA GINCANA =====
    1) No Google Sheets: Arquivo > Compartilhar > Publicar na Web > aba "Equipes" > formato CSV > Publicar.
@@ -322,7 +344,13 @@ var REFRESH_MS = 30000;
 (function(){
   var list=document.getElementById('rank-list'), stamp=document.getElementById('stamp'),
       dot=document.getElementById('dot'), demo=document.getElementById('demo');
-  var DEMO='equipe,clube,pontos\nJosé,Geração Escolhida,320\nBenjamim,Clube Aurora,295\nJudá,Clube Horizonte,295\nLevi,Clube Esperança,240\nRuben,Clube Fiel,210';
+  var UN=window.UNIDADES||[];
+  var DEMO='equipe,pontos\nTribo de Ruben,320\nFortaleza Suprema,295\nTerremoto,295\nAnjos do Rei,240\nEstrela da Manhã,210\nTribo de Aser,180\nTribo de Naftali,150\nHerdeira do Rei,120\nLírios do Altíssimo,90';
+  function key(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/^unidade\s+/,'').replace(/\s+/g,' ').trim()}
+  UN.forEach(function(u){u.keys=[u.nome].concat(u.apelidos||[]).map(key)});
+  function unitOf(name){var k=key(name);for(var i=0;i<UN.length;i++){if(UN[i].keys.indexOf(k)>-1)return UN[i]}return null}
+  var ug=document.getElementById('ugrid');
+  if(ug)ug.innerHTML=UN.map(function(u){return '<div class="ucard"><img src="'+u.logo+'" alt="Brasão da unidade '+u.nome+'" loading="lazy"><h3>'+u.nome+'</h3></div>'}).join('');
   function parseCSV(t){
     var rows=[],r=[],c='',q=false,i,ch;
     for(i=0;i<t.length;i++){ch=t[i];
@@ -345,7 +373,13 @@ var REFRESH_MS = 30000;
     }).filter(function(x){return x.t});
   }
   function esc(s){return s.replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+  function merge(teams){
+    var pts={}, extra=[];
+    teams.forEach(function(x){var u=unitOf(x.t); if(u)pts[u.nome]=(pts[u.nome]||0)+x.p; else extra.push(x);});
+    return UN.map(function(u){return {t:u.nome,u:u,p:pts[u.nome]||0}}).concat(extra);
+  }
   function render(teams){
+    teams=merge(teams);
     if(!teams.length){list.innerHTML='<li class="empty">A gincana ainda não começou. Os pontos aparecem aqui assim que forem lançados.</li>';return;}
     teams.sort(function(a,b){return b.p-a.p||a.t.localeCompare(b.t)});
     var max=Math.max(teams[0].p,1), pos=0, prev=null;
@@ -354,7 +388,8 @@ var REFRESH_MS = 30000;
       var cls=pos<=3?' p'+pos:'';
       return '<li class="row'+cls+'"><span class="bar" style="width:'+Math.round(x.p/max*100)+'%"></span>'+
         '<span class="pos">'+pos+'º</span>'+
-        '<span><span class="team">'+esc(x.t)+'</span><br><span class="club">'+esc(x.c)+'</span></span>'+
+        (x.u?'<img class="tlogo" src="'+x.u.logo+'" alt="" loading="lazy">':'<span class="tlogo ini">'+esc(x.t.charAt(0).toUpperCase())+'</span>')+
+        '<span><span class="team">'+esc(x.t)+'</span>'+(x.c?'<br><span class="club">'+esc(x.c)+'</span>':'')+'</span>'+
         '<span class="pts">'+x.p.toLocaleString('pt-BR')+'<small>pontos</small></span></li>';
     }).join('');
   }
