@@ -2,3 +2,9 @@
 <FilesMatch "^(README\.md|\.gitignore|modelo-planilha-equipes\.csv)$">
   Require all denied
 </FilesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^apps-script/ - [F,L]
+</IfModule>
+
