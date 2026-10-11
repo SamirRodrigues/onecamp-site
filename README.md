@@ -26,3 +26,7 @@ Não versionar documentos de secretaria nem dados pessoais (CPF, RG, telefones).
 Os nomes e brasões ficam em `js/unidades.js` e `img/unidades/`. Para incluir uma unidade, adicione um item no arquivo e a imagem na pasta. Todas as unidades aparecem no ranking mesmo que ainda não estejam na planilha (com 0 ponto).
 
 
+
+## Cache
+O `index.html` carrega `js/unidades.js?v=AAAAMMDD`. Ao alterar `js/unidades.js`, atualize esse número no `index.html` para os visitantes receberem a versão nova.
+
