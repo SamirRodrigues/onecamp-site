@@ -3,13 +3,13 @@
    "instagram": usuário da unidade sem o @ (ex.: 'tribo.ruben'); vazio = sem link.
    "nome" deve ser igual ao que está na coluna "equipe" da planilha; "apelidos" são variações aceitas. */
 window.UNIDADES = [
-  { nome: 'Tribo de Ruben',      logo: 'img/unidades/logo_tribo-de-ruben.jpg',      apelidos: ['Ruben'], instagram: '' },
-  { nome: 'Tribo de Naftali',    logo: 'img/unidades/logo_tribo-de-naftali.jpg',    apelidos: ['Naftali'], instagram: '' },
-  { nome: 'Tribo de Aser',       logo: 'img/unidades/logo_tribo-de-aser.jpg',       apelidos: ['Aser'], instagram: '' },
-  { nome: 'Estrela da Manhã',    logo: 'img/unidades/logo_estrela-da-manha.jpg',    apelidos: [], instagram: '' },
-  { nome: 'Terremoto',           logo: 'img/unidades/logo_terremoto.jpg',           apelidos: [], instagram: '' },
-  { nome: 'Anjos do Rei',        logo: 'img/unidades/logo_anjos-do-rei.jpg',        apelidos: [], instagram: '' },
-  { nome: 'Herdeira do Rei',     logo: 'img/unidades/logo_herdeira-do-rei.jpg',     apelidos: ['Herdeiras do Rei'], instagram: '' },
-  { nome: 'Fortaleza Suprema',   logo: 'img/unidades/logo_fortaleza-suprema.jpg',   apelidos: [], instagram: '' },
-  { nome: 'Lírios do Altíssimo', logo: 'img/unidades/logo_lirios-do-altissimo.jpg', apelidos: ['Lirios do Altissimo'], instagram: '' }
+  { nome: 'Tribo de Ruben',      logo: 'img/unidades/logo_tribo-de-ruben.jpg',      apelidos: ['Ruben'], instagram: 'tribo_de__ruben' },
+  { nome: 'Tribo de Naftali',    logo: 'img/unidades/logo_tribo-de-naftali.jpg',    apelidos: ['Naftali'], instagram: '_tribo_naftali' },
+  { nome: 'Tribo de Aser',       logo: 'img/unidades/logo_tribo-de-aser.jpg',       apelidos: ['Aser'], instagram: 'tribo_de__aser01' },
+  { nome: 'Estrela da Manhã',    logo: 'img/unidades/logo_estrela-da-manha.jpg',    apelidos: [], instagram: 'unidade.estreladamanha' },
+  { nome: 'Terremoto',           logo: 'img/unidades/logo_terremoto.jpg',           apelidos: [], instagram: 'unidadeterremoto' },
+  { nome: 'Anjos do Rei',        logo: 'img/unidades/logo_anjos-do-rei.jpg',        apelidos: [], instagram: 'unidadeanjosdoreidbv_r12' },
+  { nome: 'Herdeira do Rei',     logo: 'img/unidades/logo_herdeira-do-rei.jpg',     apelidos: ['Herdeiras do Rei'], instagram: 'unidadeherdeirasdorei' },
+  { nome: 'Fortaleza Suprema',   logo: 'img/unidades/logo_fortaleza-suprema.jpg',   apelidos: [], instagram: 'uni.fortaleza.suprema' },
+  { nome: 'Lírios do Altíssimo', logo: 'img/unidades/logo_lirios-do-altissimo.jpg', apelidos: ['Lirios do Altissimo'], instagram: 'unidadelirios_r7' }
 ];

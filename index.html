@@ -77,6 +77,26 @@ nav ul a:hover{color:var(--gold-2)}
 .day .m{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-bottom:10px}
 .day p{font-size:.88rem;color:var(--muted)}
 
+/* mural de comentários */
+#mural[hidden]{display:none}
+.mform{display:grid;gap:12px;max-width:720px;margin-bottom:28px}
+.mform input[type=text],.mform textarea{width:100%;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;resize:vertical}
+.mform input:focus,.mform textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.mchk{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);cursor:pointer}
+.mchk input{margin-top:3px;accent-color:var(--gold)}
+.mrow{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.mrow .btn{cursor:pointer;font:inherit;font-weight:600}
+.mrow .btn:disabled{opacity:.6;cursor:wait}
+#m-msg{font-size:.88rem;color:var(--muted)}
+.mlist{display:grid;gap:12px;max-width:720px}
+.mitem{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.mitem .mh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.mitem b{color:var(--gold-2)}
+.mitem small{color:var(--muted);font-size:.78rem}
+.mitem p{color:var(--ink);font-size:.95rem;white-space:pre-wrap;overflow-wrap:anywhere}
+/* ranking no topo (depois do início do evento) */
+.hero #ranking.in-hero{width:100%;max-width:760px;padding:8px 0 0;border:0;text-align:left}
+.hero #ranking.in-hero .wrap{padding:0}
 /* ranking */
 .rank-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .live{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)}
@@ -224,9 +244,9 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
       <div class="eyebrow">Local</div>
       <h2>Granja Viva Mar</h2>
       <p class="lead">Rua Maria Plim Plim, nº 125<br>Mendes · São José de Mipibu/RN<br>CEP 59162-972</p>
-      <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rua+Maria+Plim+Plim+125+Mendes+S%C3%A3o+Jos%C3%A9+de+Mipibu+RN">Abrir no Google Maps</a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=-6.00604,-35.3059675">Abrir no Google Maps</a>
     </div>
-    <div class="frame" style="aspect-ratio:4/3"><iframe title="Mapa da Granja Viva Mar" src="https://www.google.com/maps?q=Rua+Maria+Plim+Plim+125+Mendes+S%C3%A3o+Jos%C3%A9+de+Mipibu+RN&output=embed" style="width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <div class="frame" style="aspect-ratio:4/3"><iframe title="Mapa da Granja Viva Mar" src="https://www.google.com/maps?q=-6.00604,-35.3059675&z=17&output=embed" style="width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -261,7 +281,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
         </ul>
       </div>
     </div>
-    <div class="card" style="margin-top:18px"><h3>Autorização de viagem</h3><p>Participantes menores de 16 anos precisam da autorização de viagem assinada pelo responsável, com firma reconhecida, conforme a Resolução CNJ 295/2019.</p></div>
+    <div class="card" style="margin-top:18px"><h3>Autorização de viagem</h3><p>Participantes menores de 18 anos precisam da autorização de viagem assinada pelo responsável, com firma reconhecida.</p></div>
   </div>
 </section>
 
@@ -277,13 +297,29 @@ footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:v
   </div>
 </section>
 
+<section id="mural" hidden>
+  <div class="wrap">
+    <div class="eyebrow">Mural</div>
+    <h2>Deixe seu comentário</h2>
+    <p class="lead">Mande um recado para as unidades, compartilhe a expectativa para o acampamento ou conte como foi.</p>
+    <form id="mural-form" class="mform" autocomplete="off">
+      <input type="text" id="m-nome" maxlength="60" placeholder="Seu nome" required aria-label="Seu nome">
+      <textarea id="m-texto" maxlength="500" rows="3" placeholder="Escreva seu comentário (até 500 caracteres)" required aria-label="Comentário"></textarea>
+      <input type="text" id="m-site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+      <label class="mchk"><input type="checkbox" id="m-loc" checked> Mostrar minha cidade junto ao comentário (o navegador vai pedir permissão de localização)</label>
+      <div class="mrow"><button class="btn primary" type="submit" id="m-btn">Publicar comentário</button><span id="m-msg" role="status"></span></div>
+    </form>
+    <div id="mural-list" class="mlist"></div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <div class="eyebrow">Dúvidas</div>
     <h2>Perguntas frequentes</h2>
     <details><summary>Quem pode participar?</summary><p>Clubes de Desbravadores inscritos no SGC, com staff e crianças incluídos na lista de participantes.</p></details>
     <details><summary>Como faço a inscrição?</summary><p>A inscrição é feita pelo clube, no SGC, e a documentação é entregue na secretaria do evento em 29/10/2026.</p></details>
-    <details><summary>Menores de 16 anos precisam de autorização?</summary><p>Sim. É preciso a autorização de viagem assinada pelo responsável, com firma reconhecida.</p></details>
+    <details><summary>Menores de 18 anos precisam de autorização?</summary><p>Sim. É preciso a autorização de viagem assinada pelo responsável, com firma reconhecida.</p></details>
     <details><summary>Posso levar visitantes?</summary><p>Somente no regime Day Pass, dentro dos horários estabelecidos pela organização.</p></details>
   </div>
 </section>
@@ -388,10 +424,78 @@ var REFRESH_MS = 30000;
 })();
 </script>
 <script>
+/* ===== MURAL DE COMENTÁRIOS =====
+   Endereço do app da planilha de comentários (Google Apps Script). Vazio = mural oculto. */
+var COMMENTS_API_URL = '';
+(function(){
+  var sec=document.getElementById('mural'); if(!COMMENTS_API_URL||!sec)return;
+  sec.hidden=false;
+  var nav=document.querySelector('nav ul'); if(nav){var li=document.createElement('li');li.innerHTML='<a href="#mural">Mural</a>';var ref=nav.querySelector('a[href="#faq"]');nav.insertBefore(li,ref?ref.parentNode:null);}
+  var form=document.getElementById('mural-form'), list=document.getElementById('mural-list'), msg=document.getElementById('m-msg'), btn=document.getElementById('m-btn');
+  function ago(iso){var s=(Date.now()-new Date(iso).getTime())/1000; if(isNaN(s))return ''; if(s<60)return 'agora'; if(s<3600)return 'há '+Math.floor(s/60)+' min'; if(s<86400)return 'há '+Math.floor(s/3600)+' h'; return 'há '+Math.floor(s/86400)+' d';}
+  function draw(items){
+    list.textContent='';
+    if(!items.length){var e=document.createElement('div');e.className='empty';e.textContent='Seja o primeiro a comentar.';list.appendChild(e);return;}
+    items.forEach(function(c){
+      var d=document.createElement('div');d.className='mitem';
+      var h=document.createElement('div');h.className='mh';
+      var b=document.createElement('b');b.textContent=c.nome;
+      var s=document.createElement('small');s.textContent=[c.cidade,ago(c.data)].filter(Boolean).join(' · ');
+      h.appendChild(b);h.appendChild(s);
+      var p=document.createElement('p');p.textContent=c.texto;
+      d.appendChild(h);d.appendChild(p);list.appendChild(d);
+    });
+  }
+  function load(){
+    fetch(COMMENTS_API_URL+(COMMENTS_API_URL.indexOf('?')>-1?'&':'?')+'t='+Date.now(),{cache:'no-store'})
+      .then(function(r){return r.json()}).then(function(j){draw(j.comentarios||[])}).catch(function(){});
+  }
+  function place(){
+    return new Promise(function(res){
+      if(!document.getElementById('m-loc').checked||!navigator.geolocation)return res('');
+      navigator.geolocation.getCurrentPosition(function(p){
+        fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+p.coords.latitude+'&longitude='+p.coords.longitude+'&localityLanguage=pt')
+          .then(function(r){return r.json()})
+          .then(function(g){var c=g.city||g.locality||'';var uf=(g.principalSubdivisionCode||'').split('-').pop();res(c?(uf?c+'/'+uf:c):'')})
+          .catch(function(){res('')});
+      },function(){res('')},{timeout:8000,maximumAge:600000});
+    });
+  }
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var nome=document.getElementById('m-nome').value.trim(), texto=document.getElementById('m-texto').value.trim();
+    if(document.getElementById('m-site').value)return;
+    if(!nome||!texto)return;
+    var last=0;try{last=+localStorage.getItem('mural-last')||0}catch(e){}
+    if(Date.now()-last<30000){msg.textContent='Aguarde alguns segundos para enviar outro comentário.';return;}
+    btn.disabled=true;msg.textContent='Publicando…';
+    place().then(function(cidade){
+      return fetch(COMMENTS_API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({nome:nome,texto:texto,cidade:cidade})}).then(function(){return cidade});
+    }).then(function(cidade){
+      try{localStorage.setItem('mural-last',String(Date.now()))}catch(e){}
+      form.reset();document.getElementById('m-loc').checked=true;
+      msg.textContent='Comentário publicado. Obrigado!';
+      var first=list.querySelector('.empty');if(first)list.textContent='';
+      draw([{nome:nome,texto:texto,cidade:cidade,data:new Date().toISOString()}].concat([].slice.call(list.querySelectorAll('.mitem')).map(function(n){return {nome:n.querySelector('b').textContent,texto:n.querySelector('p').textContent,cidade:(n.querySelector('small').textContent.split(' · ')[0]||''),data:''}})));
+      setTimeout(load,4000);
+    }).catch(function(){msg.textContent='Não foi possível publicar agora. Tente novamente.';})
+      .then(function(){btn.disabled=false;});
+  });
+  load();setInterval(load,60000);
+})();
+</script>
+<script>
 (function(){
   var target=new Date('2026-10-29T00:00:00-03:00').getTime();
   var ids=['d','h','m','s'].map(function(k){return document.getElementById('cd-'+k)});
+  var moved=false;
+  function showRanking(){
+    if(moved)return; moved=true;
+    var c=document.getElementById('count'), r=document.getElementById('ranking');
+    if(c&&r){r.classList.add('in-hero');c.parentNode.replaceChild(r,c);}
+  }
   function tick(){
+    if(target-Date.now()<=0)showRanking();
     var t=Math.max(0,target-Date.now());
     var v=[Math.floor(t/864e5),Math.floor(t%864e5/36e5),Math.floor(t%36e5/6e4),Math.floor(t%6e4/1e3)];
     v.forEach(function(n,i){ids[i].textContent=String(n).padStart(2,'0')});
